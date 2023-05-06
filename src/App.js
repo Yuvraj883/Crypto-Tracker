@@ -2,22 +2,26 @@ import logo from './logo.svg';
 import './App.css';
 
 function App() {
+  const url = 'https://fakestoreapi.com/products'; 
+  // const key = '42ac69f7fcmshf12ad123d54ec4bp165600jsnf5552041810b'; 
+  
+  async function logJSONData() {
+      const response = await fetch(url,{
+        method:'GET',
+        // headers:{
+        //   'X-RapidAPI-Key': key,
+	      // 	'X-RapidAPI-Host': 'coingecko.p.rapidapi.com'
+        // }
+      });
+      const jsonData = await response.json();
+      console.log(jsonData);
+    }
+  
+    logJSONData();
+  
   return (
     <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
+      
     </div>
   );
 }
