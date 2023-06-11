@@ -15,7 +15,7 @@ const Provider = ({children})=>{
     const fetchAPI = async (url)=>{
         const res = await fetch(url); 
         const APIData = await res.json;
-        console.log("HI");
+        console.log("HI from context API page");
         // const dispatch = ()=>{
         //     dispatch({
         //         type:"SET_DATA", 
