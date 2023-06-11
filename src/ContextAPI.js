@@ -14,8 +14,14 @@ const Provider = ({children})=>{
 
     const fetchAPI = async (url)=>{
         const res = await fetch(url); 
-        const data = await res.json;
-        console.log(data);
+        const APIData = await res.json;
+        console.log("HI");
+        dispatch({
+            type:"SET_DATA", 
+            payload: {
+                data: APIData
+            }
+        })
     }
 
     useEffect(()=>{
