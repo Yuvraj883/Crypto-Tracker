@@ -1,6 +1,6 @@
 import React, { useEffect } from "react";
 import { useReducer } from "react";
-import reducer from "./Reducer";
+import reducer from "./reducer";
 
 const API = "https://api.coingecko.com/api/v3/coins/markets?vs_currency=inr&order=market_cap_desc&per_page=100&page=1&sparkline=false&price_change_percentage=7d&locale=en";
 let initialState ={
