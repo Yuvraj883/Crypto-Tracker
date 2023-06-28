@@ -12,21 +12,29 @@ const API_URL = "https://api.coingecko.com/api/v3/coins/markets?vs_currency=inr&
 const [isLoading, setIsLoading]  = useState(true);
 const [data, setData] = useState([]);
 
-    const fetchAPI = (url)=>{
-        fetch(url).then((res)=>{res.json()})
-        .then((data)=>{
-            setData(data);
-            setIsLoading(false);
-            
-
-        })
-        .catch((error)=>{
-            console.log(error);
-        })
-        
-    }
+   
 
     useEffect(()=>{
+        function fetchAPI (url){
+            fetch(url).then((res)=>{
+                if(!res?.ok){
+                    throw new Error("An error occured");
+                }
+                console.log(res.json());
+                res.json()})
+            .then((data)=>{
+                if(data?.isArray){
+                    setData(data);
+                    setIsLoading(false);
+                    console.log(data);
+                }
+                            
+                })
+            .catch((error)=>{
+                console.log(error);
+            })
+            
+        }
         fetchAPI(API_URL); 
 
         setTimeout(()=>{
