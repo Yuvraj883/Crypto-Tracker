@@ -23,7 +23,7 @@ const [data, setData] = useState([]);
            } 
             const d = await response.json();
             setData(d); 
-            console.log(data);
+            // console.log(data);
             setIsLoading(false);
 
            }
@@ -41,7 +41,7 @@ const [data, setData] = useState([]);
         // console.log(data); 
 
         
-    }, [data]);
+    }, []);
 
 
     return(
