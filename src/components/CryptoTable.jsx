@@ -46,15 +46,15 @@ const [data, setData] = useState([]);
 
     return(
         <>
-        <div className="w-[80%] mx-auto">
+        <div className="w-[90%] mx-auto ">
             <div className="text-[#A0AEC0] font-semibold flex flex-col text-xl justify-between items-ceter p-2 border-1 border-solid border-white">
-              <div className="flex flex-row text-lg justify-between">
-              <span>COIN</span>
-                <span>SYMBOL</span>
-                <span>CURRENT PRICE</span>
-                <span>PRICE GRAPH</span>
-                <span>ORDER VALUE</span>
-                <span>MARKET DEPTH</span>
+              <div className="flex flex-row text-lg justify-between p-2">
+              <span className="w-[20%] ">COIN</span>
+                <span  className="w-[10%] ">SYMBOL</span>
+                <span  className="w-[15%] ">CURRENT PRICE</span>
+                <span  className="w-[10%]">PRICE GRAPH</span>
+                <span  className="w-[15%]">ORDER VALUE</span>
+                <span  className="w-[15%]">MARKET DEPTH</span>
               </div>
               {
                isLoading && 
@@ -63,8 +63,8 @@ const [data, setData] = useState([]);
               {
                 !isLoading &&
                 data.map((obj, index)=>(
-                    <CryptoTableRow {...obj} index={index} key={index}/>
-                ))
+                    <CryptoTableRow {...obj} index={index} key={index}/> 
+                ))  
               }  
 
             </div>
