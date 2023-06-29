@@ -15,24 +15,22 @@ const [data, setData] = useState([]);
    
 
     useEffect(()=>{
-        function fetchAPI (url){
-            fetch(url).then((res)=>{
-                if(!res?.ok){
-                    throw new Error("An error occured");
-                }
-                console.log(res.json());
-                res.json()})
-            .then((data)=>{
-                if(data?.isArray){
-                    setData(data);
-                    setIsLoading(false);
-                    console.log(data);
-                }
-                            
-                })
-            .catch((error)=>{
-                console.log(error);
-            })
+       async function fetchAPI (url){
+        try{
+            const response = await fetch(url);
+           if(!response.ok){
+            throw new Error("An error occured!!"); 
+           } 
+            const d = await response.json();
+            setData(d); 
+            console.log(data);
+            setIsLoading(false);
+
+           }
+           catch(error){
+            console.log("Error: "+ error);
+           }
+           
             
         }
         fetchAPI(API_URL); 
