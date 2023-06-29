@@ -1,16 +1,20 @@
 import React from "react";
 import Navbar from "./components/Navbar";
-import { Provider } from "./ContextAPI";
+import SearchBar from "./components/SearchBar";
+import CryptoTable from './components/CryptoTable'
+// import { Provider } from "./ContextAPI";
 
 function App() {
   return (
    <>
-    <Provider>
-    <div className="bg-black">
+    
+    <div className="bg-gray-900 h-full ">
       <Navbar></Navbar>
-      hi
+      <SearchBar></SearchBar>
+      <CryptoTable></CryptoTable>
+    
     </div>
-    </Provider>
+  
    </>
   );
 }
