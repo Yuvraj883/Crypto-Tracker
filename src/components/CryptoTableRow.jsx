@@ -2,7 +2,7 @@ const CryptoTableRow = ({index, symbol, name, image, current_price, price_change
     return (
 
         <>
-        <div className={index%2===0?'bg-[#2d3748] md:flex hidden md:flex-row justify-between items-center px-2 py-2': 'bg-gray-900 hidden md:flex md:flex-row justify-between items-center p-2'}>
+        <div className={index%2===0?'bg-[#2d3748] text-lg md:flex hidden md:flex-row justify-between items-center px-2 py-2': 'bg-gray-900 text-lg hidden md:flex md:flex-row justify-between items-center p-2'}>
             <span className="w-[20%]"><img src={image} className="h-8 w-auto inline" alt="coin-img"/> {name}</span>
             <span className="w-[10%]">{symbol}</span>
             <span className="w-[15%]">{current_price.toLocaleString('en-IN', {
