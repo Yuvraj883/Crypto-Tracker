@@ -41,15 +41,15 @@ const [data, setData] = useState([]);
         // console.log(data); 
 
         
-    }, []);
+    }, [data]);
 
 
     return(
         <>
         <div className="w-[90%] mx-auto ">
-            <div className="text-[#A0AEC0] font-semibold flex flex-col text-xl justify-between items-ceter p-2 border-1 border-solid border-white">
+            <div className="text-[#A0AEC0] font-semibold flex flex-col text-xl justify-between items-ceter  border-[1px] border-solid border-white">
               <div className="flex flex-row text-lg justify-between p-2">
-              <span className="w-[20%] ">COIN</span>
+              <span className="w-[20%] p-2">COIN</span>
                 <span  className="w-[10%] ">SYMBOL</span>
                 <span  className="w-[15%] ">CURRENT PRICE</span>
                 <span  className="w-[10%]">PRICE GRAPH</span>
