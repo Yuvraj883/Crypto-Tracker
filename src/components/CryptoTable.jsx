@@ -2,7 +2,7 @@ import { useState, useEffect } from "react";
 import CryptoTableRow from "./CryptoTableRow";
 
 
-const CryptoTable = () => {
+const CryptoTable = ({search}) => {
     const API_URL = "https://api.coingecko.com/api/v3/coins/markets?vs_currency=inr&order=market_cap_desc&per_page=100&page=1&sparkline=false&price_change_percentage=7d&locale=en";
     // const [price, setPrice] = useState(null); 
     // const [symbol, setSymbol] = useState(null);
@@ -62,7 +62,10 @@ const CryptoTable = () => {
                         <span className="w-[15%]">MARKET DEPTH</span>
                     </div>
                     {
-                        data.map((obj, index) => (
+                        data.filter((obj)=>{
+                            return search.toLowerCase()=== ''? obj : obj?.name?.toLowerCase().includes(search);
+                        })
+                        .map((obj, index) => (
                             <CryptoTableRow {...obj} index={index} key={index} />
                         ))
                     }
