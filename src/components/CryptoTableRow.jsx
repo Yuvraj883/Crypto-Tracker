@@ -1,14 +1,20 @@
-const CryptoTableRow = ({index, symbol, name, image, current_price, price_change_percentage_24h,market_cap})=>{
+const CryptoTableRow = ({index, symbol, name, image, current_price, price_change_percentage_24h,market_cap, total_volume})=>{
     return (
 
         <>
-        <div className={index%2===0?'bg-[#2d3748]': 'bg-gray-900'}>
-            <span>{name}</span>
-            <span>{symbol}</span
-            ><span><img src={image} alt="coin-img"/> </span>
-            <span>{current_price}</span>
-            <span>{price_change_percentage_24h}</span>
-            <span>{market_cap}</span>
+        <div className={index%2===0?'bg-[#2d3748] flex flex-row justify-between items-center px-2 py-2': 'bg-gray-900  flex flex-row justify-between items-center p-2'}>
+            <span className="w-[20%]"><img src={image} className="h-8 w-auto inline" alt="coin-img"/> {name}</span>
+            <span className="w-[10%]">{symbol}</span>
+            <span className="w-[15%]">{current_price.toLocaleString('en-IN', {
+                currency:'INR',
+                style:'currency',
+                maximumFractionDigits:2
+            })}</span>
+            <span  className={price_change_percentage_24h.toFixed(2)<0?"w-[10%] text-red-700":"w-[10%] text-green-700"}>{price_change_percentage_24h.toFixed(2)}%</span>
+            <span className="w-[15%]">{total_volume.toLocaleString('en-IN')} </span>
+
+            <span  className="w-[15%]">{market_cap.toLocaleString('en-IN')}</span>
+
         </div>
         </>
     )
