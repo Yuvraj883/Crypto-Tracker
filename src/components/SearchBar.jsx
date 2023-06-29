@@ -9,7 +9,7 @@ console.log(search);
 
         {/* mobile view  */}
         <div className="md:hidden flex flex-row justify-center items-center  m-5">
-            <input className=" py-2 bg-gray-300 w-[90%] rounded-xl px-2 focus:outline-blue-500 focus:border-2 " placeholder="Search coin..."/>
+            <input onChange={(e)=>{setSearch(e.target.value)}} className=" py-2  bg-gray-300 w-[90%] rounded-xl px-2 focus:outline-blue-500 focus:border-2 " placeholder="Search coin..."/>
         </div>
 
         </>

@@ -51,7 +51,7 @@ const CryptoTable = ({search}) => {
     }
     return (
         <>
-            <div className="w-[90%] mx-auto md:block hidden ">
+            <div className="w-[90%] mx-auto md:block hidden p-8 ">
                 <div className="text-[#A0AEC0] font-semibold flex rounded-md flex-col text-xl justify-between items-ceter  border-[.5px] border-solid border-white">
                     <div className="flex flex-row text-lg justify-between p-2">
                         <span className="w-[20%] p-2">COIN</span>
@@ -87,7 +87,10 @@ const CryptoTable = ({search}) => {
                 <span  className="w-[15%]">MARKET DEPTH</span> */}
                     </div>
                     {
-                        data.map((obj, index) => (
+                         data.filter((obj)=>{
+                            return search.toLowerCase()=== ''? obj : obj?.name?.toLowerCase().includes(search);
+                        })
+                        .map((obj, index) => (
                             <CryptoTableRow {...obj} index={index} key={index} />
                         ))
                     }
