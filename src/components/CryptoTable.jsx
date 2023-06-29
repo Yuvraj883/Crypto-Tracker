@@ -43,12 +43,17 @@ const [data, setData] = useState([]);
         
     }, []);
 
+    if(isLoading){
+               return (
+                <div className="text-center text-gray-400 text-xl p-4 m-4 mt-10">Loading ...</div>
 
+               )
+    }
     return(
         <>
         <div className="w-[90%] mx-auto ">
             <div className="text-[#A0AEC0] font-semibold flex flex-col text-xl justify-between items-ceter  border-[1px] border-solid border-white">
-              <div className="flex flex-row text-lg justify-between p-2">
+                <div className="flex flex-row text-lg justify-between p-2">
               <span className="w-[20%] p-2">COIN</span>
                 <span  className="w-[10%] ">SYMBOL</span>
                 <span  className="w-[15%] ">CURRENT PRICE</span>
@@ -56,16 +61,13 @@ const [data, setData] = useState([]);
                 <span  className="w-[15%]">ORDER VALUE</span>
                 <span  className="w-[15%]">MARKET DEPTH</span>
               </div>
-              {
-               isLoading && 
-               <div className="text-center mt-10">Loading ...</div>
-              }
-              {
-                !isLoading &&
-                data.map((obj, index)=>(
+            {
+                   data.map((obj, index)=>(
                     <CryptoTableRow {...obj} index={index} key={index}/> 
-                ))  
-              }  
+                ))
+            }
+               
+              
 
             </div>
             </div>
